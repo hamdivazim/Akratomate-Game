@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnd7wik5paas5"
+path="res://.godot/imported/Of Far Different Nature - Another Step Back - 02 - Crypt.mp3-2b5f0230337aaf435b2a433735b0ff4d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Of Far Different Nature - Another Step Back - 02 - Crypt.mp3"
+dest_files=["res://.godot/imported/Of Far Different Nature - Another Step Back - 02 - Crypt.mp3-2b5f0230337aaf435b2a433735b0ff4d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

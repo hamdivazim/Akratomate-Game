@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c3mrhbdgbbefj"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_walli"]
+size = Vector2(100, 25)
+
+[node name="Pistol" type="Node2D" unique_id=1732637621]
+rotation = 1.5707964
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=195144039]
+position = Vector2(50, 0)
+mesh = SubResource("QuadMesh_walli")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=660686072]
+target_position = Vector2(2000, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cwjghb2tpwvmr"]
+
+[ext_resource type="Script" uid="uid://b8d0r014sdaad" path="res://player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cfvjrrc45uata" path="res://icon.svg" id="2_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://c3mrhbdgbbefj" path="res://Scenes/Pistol.tscn" id="3_6t5aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(50, 77)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fkybt"]
+size = Vector2(10, 20)
+
+[node name="Player" type="CharacterBody2D" unique_id=1481197582]
+collision_layer = 2
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660349210]
+position = Vector2(402, 333.5)
+shape = SubResource("RectangleShape2D_vgqql")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=669452726]
+position = Vector2(401.99997, 332.99997)
+scale = Vector2(5, 5)
+mesh = SubResource("QuadMesh_fkybt")
+texture = ExtResource("2_6t5aa")
+
+[node name="Pistol" parent="." unique_id=1732637621 instance=ExtResource("3_6t5aa")]
+position = Vector2(402, 332)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1813653326]
+position = Vector2(402, 331)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=465307984]

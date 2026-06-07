@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://b56bwqt44minx"]
+
+[ext_resource type="Script" uid="uid://bsxxrr11kh8wa" path="res://Scripts/enemy_shooter.gd" id="1_icgds"]
+[ext_resource type="Texture2D" uid="uid://c5f0fad4swx40" path="res://Assets/green_enemy.png" id="2_57vpb"]
+[ext_resource type="Texture2D" uid="uid://d35irbreujuy1" path="res://Assets/Gun.png" id="3_rx2tq"]
+[ext_resource type="AudioStream" uid="uid://cca47uhdcud2h" path="res://SFX/laserShoot.wav" id="4_rx2tq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_powj0"]
+atlas = ExtResource("2_57vpb")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkp12"]
+atlas = ExtResource("2_57vpb")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0opqg"]
+atlas = ExtResource("2_57vpb")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tbsy"]
+atlas = ExtResource("2_57vpb")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sq2n"]
+atlas = ExtResource("2_57vpb")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3wd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_powj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkp12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0opqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tbsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sq2n")
+}],
+"loop": true,
+"name": &"slime",
+"speed": 5.0
+}]
+
+[sub_resource type="QuadMesh" id="QuadMesh_jmgf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57vpb"]
+size = Vector2(23, 13)
+
+[node name="EnemyShooter" type="CharacterBody2D" unique_id=721574619]
+scale = Vector2(2, 2)
+collision_layer = 12
+collision_mask = 12
+script = ExtResource("1_icgds")
+AIM_ERROR_DEGREES = 45.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1783376407]
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1827643130]
+wait_time = 1.5
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=396217466]
+sprite_frames = SubResource("SpriteFrames_o3wd0")
+animation = &"slime"
+
+[node name="GunPivot" type="Node2D" parent="." unique_id=723803507]
+
+[node name="Gun" type="MeshInstance2D" parent="GunPivot" unique_id=1473658188]
+z_index = 2
+position = Vector2(23, -1)
+rotation = 3.1415927
+scale = Vector2(17.705, 17.705)
+mesh = SubResource("QuadMesh_jmgf5")
+texture = ExtResource("3_rx2tq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824273666]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_57vpb")
+
+[node name="EnemyShoot" type="AudioStreamPlayer2D" parent="." unique_id=1948503017]
+stream = ExtResource("4_rx2tq")
+volume_db = -17.227
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

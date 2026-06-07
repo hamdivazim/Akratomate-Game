@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bcc3lms4vfvj1"]
+
+[ext_resource type="Texture2D" uid="uid://c1b3y5sxetu3s" path="res://Assets/Heart.png" id="1_w371h"]
+
+[node name="Ui" type="Control" unique_id=1724582505]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=306538392]
+
+[node name="HeartsContainer" type="GridContainer" parent="CanvasLayer" unique_id=850033617]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 60.0
+columns = 10
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/HeartsContainer" unique_id=517464074]
+layout_mode = 2
+texture = ExtResource("1_w371h")

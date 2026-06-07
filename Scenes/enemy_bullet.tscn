@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bpn13qx7s8iq4"]
+
+[ext_resource type="Script" uid="uid://curjtjxkuqav2" path="res://Scripts/enemy_bullet.gd" id="1_54jiv"]
+[ext_resource type="Texture2D" uid="uid://7nhlmtx52m8i" path="res://Assets/EnemyBullet.png" id="2_54jiv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6yqb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_72t2l"]
+
+[node name="enemy bullet" type="Node2D" unique_id=582137866]
+script = ExtResource("1_54jiv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2135419294]
+
+[node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1181833575]
+position = Vector2(2.695, 0)
+scale = Vector2(0.565, 0.565)
+shape = SubResource("CircleShape2D_b6yqb")
+target_position = Vector2(10, 0)
+collision_mask = 2
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1971767193]
+z_index = 2
+position = Vector2(-1.1920929e-07, -5.9604645e-08)
+scale = Vector2(28.68, 14.34)
+mesh = SubResource("QuadMesh_72t2l")
+texture = ExtResource("2_54jiv")

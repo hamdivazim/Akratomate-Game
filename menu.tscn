@@ -1,0 +1,309 @@
+[gd_scene format=3 uid="uid://chjt3q77jhmuv"]
+
+[ext_resource type="Script" uid="uid://cvj0vyypi1wp1" path="res://addons/yet_another_menu/ScriptsScene/menu_pause.gd" id="1_g7jxm"]
+[ext_resource type="Texture2D" uid="uid://kkbochnryqo7" path="res://Assets/pixil-frame-0_2.png" id="2_g7jxm"]
+[ext_resource type="Texture2D" uid="uid://cdsk0c3kahecj" path="res://addons/yet_another_menu/assets/cross.png" id="3_oxnod"]
+[ext_resource type="Texture2D" uid="uid://cesf0jgrx67tr" path="res://addons/yet_another_menu/assets/SoundOn.png" id="4_gd0jp"]
+[ext_resource type="Texture2D" uid="uid://8vhla3kfhvkj" path="res://addons/yet_another_menu/assets/SoundOff.png" id="5_4ndjb"]
+[ext_resource type="Texture2D" uid="uid://c5mn6h4eolpwr" path="res://addons/yet_another_menu/assets/windowMode.png" id="6_3ls4m"]
+[ext_resource type="Texture2D" uid="uid://crku6ppnu0r5t" path="res://addons/yet_another_menu/assets/triangleLeft.png" id="7_5h80m"]
+[ext_resource type="Script" uid="uid://dq7owwp4wqekt" path="res://addons/yet_another_menu/ScriptsScene/window_label_script.gd" id="8_w25hu"]
+[ext_resource type="Texture2D" uid="uid://ba3knhf5v0kam" path="res://addons/yet_another_menu/assets/triangleRight.png" id="9_td6mg"]
+[ext_resource type="Texture2D" uid="uid://n4ffjnrpumt6" path="res://addons/yet_another_menu/assets/WindowRes.png" id="10_guify"]
+[ext_resource type="Script" uid="uid://buyakxm2gjf3u" path="res://addons/yet_another_menu/ScriptsScene/resolution_label_script.gd" id="11_oil5j"]
+[ext_resource type="Texture2D" uid="uid://cjo7l8oj1hbvb" path="res://addons/yet_another_menu/assets/vertSync.png" id="12_8uog0"]
+[ext_resource type="Script" uid="uid://bs86pgyg0tbbf" path="res://addons/yet_another_menu/ScriptsScene/vert_sync_label_script.gd" id="13_k5x1w"]
+
+[node name="TestUIMain" type="CanvasLayer" unique_id=1303241349]
+script = ExtResource("1_g7jxm")
+
+[node name="BG" type="TextureRect" parent="." unique_id=865626872]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_g7jxm")
+expand_mode = 1
+
+[node name="OverallBox" type="HBoxContainer" parent="." unique_id=955841197]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UnpauseBtn" type="TextureButton" parent="OverallBox" unique_id=533098435]
+custom_minimum_size = Vector2(51.84, 51.84)
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("3_oxnod")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="OptionsBox" type="VBoxContainer" parent="OverallBox" unique_id=2101822306]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TitleBox" type="VBoxContainer" parent="OverallBox/OptionsBox" unique_id=1942996029]
+layout_mode = 2
+
+[node name="TitleUnderBox" type="HBoxContainer" parent="OverallBox/OptionsBox/TitleBox" unique_id=618535358]
+layout_mode = 2
+
+[node name="LeftFill" type="Control" parent="OverallBox/OptionsBox/TitleBox/TitleUnderBox" unique_id=877924884]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="OverallBox/OptionsBox/TitleBox/TitleUnderBox" unique_id=303560511]
+layout_mode = 2
+theme_override_font_sizes/font_size = 51
+text = "Pause"
+
+[node name="RightFill" type="Control" parent="OverallBox/OptionsBox/TitleBox/TitleUnderBox" unique_id=1533301479]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Filler" type="Control" parent="OverallBox/OptionsBox/TitleBox" unique_id=1371768029]
+custom_minimum_size = Vector2(0, 17.28)
+layout_mode = 2
+
+[node name="VolumeBox" type="HBoxContainer" parent="OverallBox/OptionsBox" unique_id=1042183861]
+layout_mode = 2
+
+[node name="LeftFill" type="Control" parent="OverallBox/OptionsBox/VolumeBox" unique_id=590997252]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SoundButton" type="TextureButton" parent="OverallBox/OptionsBox/VolumeBox" unique_id=1716305500]
+custom_minimum_size = Vector2(51.84, 51.84)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("4_gd0jp")
+texture_pressed = ExtResource("5_4ndjb")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VolumeLabel" type="Label" parent="OverallBox/OptionsBox/VolumeBox" unique_id=1589543839]
+custom_minimum_size = Vector2(230.4, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "Volume :"
+vertical_alignment = 1
+
+[node name="SoundSlider" type="HSlider" parent="OverallBox/OptionsBox/VolumeBox" unique_id=1698633089]
+custom_minimum_size = Vector2(414.72, 34.56)
+layout_mode = 2
+size_flags_vertical = 4
+step = 10.0
+value = 100.0
+
+[node name="RightFill" type="Control" parent="OverallBox/OptionsBox/VolumeBox" unique_id=1762494228]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WindowBox" type="HBoxContainer" parent="OverallBox/OptionsBox" unique_id=172880269]
+layout_mode = 2
+
+[node name="LeftFill" type="Control" parent="OverallBox/OptionsBox/WindowBox" unique_id=1641093509]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WindowButton" type="TextureButton" parent="OverallBox/OptionsBox/WindowBox" unique_id=767702474]
+custom_minimum_size = Vector2(51.84, 51.84)
+layout_mode = 2
+texture_normal = ExtResource("6_3ls4m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="WindowLabel" type="Label" parent="OverallBox/OptionsBox/WindowBox" unique_id=73264712]
+custom_minimum_size = Vector2(230.4, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "Window :"
+vertical_alignment = 1
+
+[node name="Left" type="TextureButton" parent="OverallBox/OptionsBox/WindowBox" unique_id=522416185]
+custom_minimum_size = Vector2(34.56, 34.56)
+layout_mode = 2
+texture_normal = ExtResource("7_5h80m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="WindowLabel2" type="Label" parent="OverallBox/OptionsBox/WindowBox" unique_id=1034790041]
+custom_minimum_size = Vector2(345.6, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "windowed"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_w25hu")
+
+[node name="Right" type="TextureButton" parent="OverallBox/OptionsBox/WindowBox" unique_id=663795632]
+custom_minimum_size = Vector2(34.56, 34.56)
+layout_mode = 2
+texture_normal = ExtResource("9_td6mg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RightFill" type="Control" parent="OverallBox/OptionsBox/WindowBox" unique_id=1216891033]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="resolution_box" type="HBoxContainer" parent="OverallBox/OptionsBox" unique_id=242916128]
+layout_mode = 2
+
+[node name="LeftFill" type="Control" parent="OverallBox/OptionsBox/resolution_box" unique_id=415924678]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResolutionButton" type="TextureButton" parent="OverallBox/OptionsBox/resolution_box" unique_id=432557939]
+custom_minimum_size = Vector2(51.84, 51.84)
+layout_mode = 2
+texture_normal = ExtResource("10_guify")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ResolutionLabel" type="Label" parent="OverallBox/OptionsBox/resolution_box" unique_id=1011994272]
+custom_minimum_size = Vector2(230.4, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "Resolution :"
+vertical_alignment = 1
+
+[node name="Left" type="TextureButton" parent="OverallBox/OptionsBox/resolution_box" unique_id=1866945922]
+custom_minimum_size = Vector2(34.56, 34.56)
+layout_mode = 2
+texture_normal = ExtResource("7_5h80m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ResolutionLabel2" type="Label" parent="OverallBox/OptionsBox/resolution_box" unique_id=1149487266]
+custom_minimum_size = Vector2(345.6, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "1920x1080"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_oil5j")
+
+[node name="Right" type="TextureButton" parent="OverallBox/OptionsBox/resolution_box" unique_id=1968767295]
+custom_minimum_size = Vector2(34.56, 34.56)
+layout_mode = 2
+texture_normal = ExtResource("9_td6mg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RightFill" type="Control" parent="OverallBox/OptionsBox/resolution_box" unique_id=75842716]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VerticalSyncBox" type="HBoxContainer" parent="OverallBox/OptionsBox" unique_id=1394093390]
+layout_mode = 2
+
+[node name="LeftFill" type="Control" parent="OverallBox/OptionsBox/VerticalSyncBox" unique_id=402832936]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VertSyncButton" type="TextureButton" parent="OverallBox/OptionsBox/VerticalSyncBox" unique_id=741678203]
+custom_minimum_size = Vector2(51.84, 51.84)
+layout_mode = 2
+texture_normal = ExtResource("12_8uog0")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VertSyncLabel" type="Label" parent="OverallBox/OptionsBox/VerticalSyncBox" unique_id=1399173021]
+custom_minimum_size = Vector2(230.4, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "Vertical Sync :"
+vertical_alignment = 1
+
+[node name="Left" type="TextureButton" parent="OverallBox/OptionsBox/VerticalSyncBox" unique_id=108767837]
+custom_minimum_size = Vector2(34.56, 34.56)
+layout_mode = 2
+texture_normal = ExtResource("7_5h80m")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VertSyncLabel2" type="Label" parent="OverallBox/OptionsBox/VerticalSyncBox" unique_id=1005950857]
+custom_minimum_size = Vector2(345.6, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "on"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_k5x1w")
+
+[node name="Right" type="TextureButton" parent="OverallBox/OptionsBox/VerticalSyncBox" unique_id=511406558]
+custom_minimum_size = Vector2(34.56, 34.56)
+layout_mode = 2
+texture_normal = ExtResource("9_td6mg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RightFill" type="Control" parent="OverallBox/OptionsBox/VerticalSyncBox" unique_id=158377224]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackToMenuBox" type="VBoxContainer" parent="OverallBox/OptionsBox" unique_id=918953507]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="OverallBox/OptionsBox/BackToMenuBox" unique_id=2041775574]
+custom_minimum_size = Vector2(0, 17.28)
+layout_mode = 2
+
+[node name="BackMenuUnderBox" type="HBoxContainer" parent="OverallBox/OptionsBox/BackToMenuBox" unique_id=247881577]
+layout_mode = 2
+
+[node name="LeftFill" type="Control" parent="OverallBox/OptionsBox/BackToMenuBox/BackMenuUnderBox" unique_id=35876108]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="OverallBox/OptionsBox/BackToMenuBox/BackMenuUnderBox" unique_id=374653349]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Main menu"
+
+[node name="RightFill" type="Control" parent="OverallBox/OptionsBox/BackToMenuBox/BackMenuUnderBox" unique_id=102710897]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResumeBox" type="VBoxContainer" parent="OverallBox/OptionsBox" unique_id=1792271565]
+layout_mode = 2
+
+[node name="filler" type="Control" parent="OverallBox/OptionsBox/ResumeBox" unique_id=1878324035]
+custom_minimum_size = Vector2(0, 17.28)
+layout_mode = 2
+
+[node name="ResumeUnderBox" type="HBoxContainer" parent="OverallBox/OptionsBox/ResumeBox" unique_id=1078960780]
+layout_mode = 2
+
+[node name="LeftFill" type="Control" parent="OverallBox/OptionsBox/ResumeBox/ResumeUnderBox" unique_id=1491884340]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="OverallBox/OptionsBox/ResumeBox/ResumeUnderBox" unique_id=118297752]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Resume"
+
+[node name="RightFill" type="Control" parent="OverallBox/OptionsBox/ResumeBox/ResumeUnderBox" unique_id=2041195072]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="OverallBox/UnpauseBtn" to="." method="_on_unpause_btn_pressed"]
+[connection signal="toggled" from="OverallBox/OptionsBox/VolumeBox/SoundButton" to="." method="_on_sound_button_toggled"]
+[connection signal="value_changed" from="OverallBox/OptionsBox/VolumeBox/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="OverallBox/OptionsBox/WindowBox/Left" to="OverallBox/OptionsBox/WindowBox/WindowLabel2" method="_on_left_pressed"]
+[connection signal="pressed" from="OverallBox/OptionsBox/WindowBox/Right" to="OverallBox/OptionsBox/WindowBox/WindowLabel2" method="_on_right_pressed"]
+[connection signal="pressed" from="OverallBox/OptionsBox/resolution_box/Left" to="OverallBox/OptionsBox/resolution_box/ResolutionLabel2" method="_on_left_pressed"]
+[connection signal="pressed" from="OverallBox/OptionsBox/resolution_box/Right" to="OverallBox/OptionsBox/resolution_box/ResolutionLabel2" method="_on_right_pressed"]
+[connection signal="pressed" from="OverallBox/OptionsBox/VerticalSyncBox/Left" to="OverallBox/OptionsBox/VerticalSyncBox/VertSyncLabel2" method="_on_left_pressed"]
+[connection signal="pressed" from="OverallBox/OptionsBox/VerticalSyncBox/Right" to="OverallBox/OptionsBox/VerticalSyncBox/VertSyncLabel2" method="_on_right_pressed"]
+[connection signal="pressed" from="OverallBox/OptionsBox/BackToMenuBox/BackMenuUnderBox/Button" to="." method="_load_scene"]
+[connection signal="pressed" from="OverallBox/OptionsBox/ResumeBox/ResumeUnderBox/Button" to="." method="_on_unpause_btn_pressed"]

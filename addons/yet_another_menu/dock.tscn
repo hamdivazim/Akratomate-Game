@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c2p0tgh2ug1kw"]
+
+[node name="Dock" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="globalLayout" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="options" type="HBoxContainer" parent="globalLayout"]
+layout_mode = 2
+
+[node name="LeftColumn" type="VBoxContainer" parent="globalLayout/options"]
+layout_mode = 2
+
+[node name="volume" type="CheckBox" parent="globalLayout/options/LeftColumn"]
+layout_mode = 2
+button_pressed = true
+text = "Volume option"
+
+[node name="window" type="CheckBox" parent="globalLayout/options/LeftColumn"]
+layout_mode = 2
+button_pressed = true
+text = "Window mode"
+
+[node name="resolution" type="CheckBox" parent="globalLayout/options/LeftColumn"]
+layout_mode = 2
+button_pressed = true
+text = "Screen resolution"
+
+[node name="vertsync" type="CheckBox" parent="globalLayout/options/LeftColumn"]
+layout_mode = 2
+button_pressed = true
+text = "Vertical sync
+"
+
+[node name="RightColumn" type="VBoxContainer" parent="globalLayout/options"]
+layout_mode = 2
+
+[node name="TitleBox" type="HBoxContainer" parent="globalLayout/options/RightColumn"]
+layout_mode = 2
+
+[node name="title" type="CheckBox" parent="globalLayout/options/RightColumn/TitleBox"]
+layout_mode = 2
+button_pressed = true
+text = "Title :"
+
+[node name="titleText" type="LineEdit" parent="globalLayout/options/RightColumn/TitleBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pause"
+emoji_menu_enabled = false
+
+[node name="mainbtn" type="CheckBox" parent="globalLayout/options/RightColumn"]
+layout_mode = 2
+button_pressed = true
+text = "Main menu button
+"
+
+[node name="resumebtn" type="CheckBox" parent="globalLayout/options/RightColumn"]
+layout_mode = 2
+button_pressed = true
+text = "Resume button
+"
+
+[node name="exitbtn" type="CheckBox" parent="globalLayout/options/RightColumn"]
+layout_mode = 2
+button_pressed = true
+text = "Exit button"
+
+[node name="SceneTitle" type="LineEdit" parent="globalLayout"]
+layout_mode = 2
+placeholder_text = "Enter scene name here..."
+emoji_menu_enabled = false
+
+[node name="generateLine" type="HBoxContainer" parent="globalLayout"]
+layout_mode = 2
+
+[node name="fillerL" type="Control" parent="globalLayout/generateLine"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="fillerR" type="Control" parent="globalLayout/generateLine"]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://100cwrg4xgdh"]
+
+[ext_resource type="Script" uid="uid://1qena73pyiv7" path="res://Scripts/enemy.gd" id="1_0154r"]
+[ext_resource type="Texture2D" uid="uid://dec3ibdwkcgmm" path="res://Assets/red_enemy.png" id="2_wwfse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne65n"]
+size = Vector2(24.666668, 15.333334)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxrok"]
+atlas = ExtResource("2_wwfse")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukjjc"]
+atlas = ExtResource("2_wwfse")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n725y"]
+atlas = ExtResource("2_wwfse")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh6p8"]
+atlas = ExtResource("2_wwfse")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtle2"]
+atlas = ExtResource("2_wwfse")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wwfse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxrok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukjjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n725y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh6p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtle2")
+}],
+"loop": true,
+"name": &"slime",
+"speed": 5.0
+}]
+
+[node name="Boss" type="CharacterBody2D" unique_id=1985013457 groups=["enemy"]]
+z_index = 1
+scale = Vector2(5, 5)
+collision_layer = 12
+collision_mask = 9
+script = ExtResource("1_0154r")
+SEPARATION_DISTANCE = 75.0
+SEPARATION_STRENGTH = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1576223570]
+position = Vector2(0.33333334, 0.33333337)
+shape = SubResource("RectangleShape2D_ne65n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1179974663]
+sprite_frames = SubResource("SpriteFrames_wwfse")
+animation = &"slime"

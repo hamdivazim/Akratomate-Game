@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://5sap4a35jglc"]
+
+[ext_resource type="Script" uid="uid://qxgheu70wayo" path="res://Scripts/pistol_bullet.gd" id="1_ahfu4"]
+[ext_resource type="Texture2D" uid="uid://d1f6hurmkdwoy" path="res://Assets/Bullet.png" id="2_ty76o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahfu4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_67l0d"]
+
+[node name="bullet" type="Node2D" unique_id=582137866]
+z_index = -1
+script = ExtResource("1_ahfu4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1676946003]
+
+[node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=54147828]
+position = Vector2(2.695, 0)
+scale = Vector2(0.565, 0.565)
+shape = SubResource("CircleShape2D_ahfu4")
+target_position = Vector2(10, 0)
+collision_mask = 8
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1109697238]
+position = Vector2(-1.1920929e-07, -5.9604645e-08)
+scale = Vector2(28.68, 14.34)
+mesh = SubResource("QuadMesh_67l0d")
+texture = ExtResource("2_ty76o")
