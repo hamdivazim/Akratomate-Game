@@ -757,6 +757,12 @@ script = ExtResource("1_fo5ed")
 [node name="Player" parent="." unique_id=1481197582 instance=ExtResource("1_a02cp")]
 position = Vector2(412.28, 168)
 
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1617328119]
+limit_left = -95
+limit_top = -95
+limit_right = 910
+limit_bottom = 790
+
 [node name="Tilemap" type="Node2D" parent="." unique_id=1530376697]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tilemap" unique_id=109403965]

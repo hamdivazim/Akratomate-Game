@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var ACCEL = 2000
 @export var DECEL = 1000
 @export var IFRAME_DURATION: float = 1.0
-@export var RELOAD_SPEED = 0.4
+@export var RELOAD_SPEED = 0.15
 
 var pistol_bullet_speed = 1500
 var weapons = ["pistol"]

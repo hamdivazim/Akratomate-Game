@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var direction: Vector2
 var aim_error: float = 0.0
+var is_dying: bool = false
 
 var bullet_scene = preload("res://Scenes/enemy_bullet.tscn")
 var bullet_speed = 800.0
@@ -15,6 +16,7 @@ var bullet_speed = 800.0
 @onready var gun_pivot: Node2D = $GunPivot
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var player: CharacterBody2D = null 
 
@@ -34,7 +36,7 @@ func _ready():
 	add_child(aim_error_timer)
 
 func _physics_process(delta: float) -> void:
-	if player == null:
+	if player == null or is_dying:
 		return 
 	
 	var target_angle = global_position.direction_to(player.global_position).angle() + aim_error
@@ -55,6 +57,8 @@ func update_aim_error() -> void:
 	aim_error = deg_to_rad(randf_range(-AIM_ERROR_DEGREES, AIM_ERROR_DEGREES))
 
 func _on_shoot_timer_timeout() -> void:
+	if is_dying:
+		return
 	$EnemyShoot.play()
 	if player == null:
 		return
@@ -68,3 +72,25 @@ func _on_shoot_timer_timeout() -> void:
 	bullet.global_rotation = dir_to_player.angle()
 	
 	bullet.velocity = dir_to_player * bullet_speed
+
+func take_damage(amount: int):
+	if is_dying:
+		return
+	health -= amount
+	
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color(1.0, 0.3, 0.3, 1.0), 0.0)
+	tween.tween_property(sprite, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.2)
+	
+	if health <= 0:
+		die()
+
+func die():
+	is_dying = true
+	velocity = Vector2.ZERO
+	Global.gain_xp(25)
+	
+	var death_tween = create_tween().set_parallel(true)
+	death_tween.tween_property(sprite, "rotation", 5.0, 0.25)
+	death_tween.tween_property(sprite, "scale", Vector2.ZERO, 0.25)
+	death_tween.chain().tween_callback(queue_free)
